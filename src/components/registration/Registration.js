@@ -5,9 +5,9 @@ class Registration extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            names: 'sgfsd',
-            email: 'dff@ff.ffs',
-            password: 'df34',
+            names: '',
+            email: '',
+            password: '',
             allow: 1,
 
         };
@@ -63,10 +63,11 @@ class Registration extends Component {
                 <Navigation/>
                 <Grid>
                     <Row className="show-grid">
-                        <Col md={12} lg={12} sm={12} xs={12}>
+                        <Col md={6} lg={6} sm={12} xs={12}>
                             <div className="registrationform" >
                                 <FormGroup>
                                     <FormControl
+                                        className="input-reg"
                                         label="Name"
                                         type="text"
                                         value={this.state.names}
@@ -75,6 +76,7 @@ class Registration extends Component {
                                     />
                                     <FormControl.Feedback />
                                     <FormControl
+                                        className="input-reg"
                                         label="Email address"
                                         type="text"
                                         value={this.state.email}
@@ -83,6 +85,7 @@ class Registration extends Component {
                                     />
                                     <FormControl.Feedback />
                                     <FormControl
+                                        className="input-reg"
                                         label="Password"
                                         type="text"
                                         value={this.state.password}
@@ -91,7 +94,7 @@ class Registration extends Component {
                                     />
                                     <FormControl.Feedback />
                                 </FormGroup>
-                                <ButtonToolbar>
+                                <ButtonToolbar className="btn-registration">
                                     <Button bsStyle="primary" bsSize="large" active onClick={this.CreateAccount.bind(this)}>Create account</Button>
                                 </ButtonToolbar>
                             </div>

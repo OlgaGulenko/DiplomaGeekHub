@@ -8,7 +8,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import { Route } from 'react-router';
 import { Link } from 'react-router-dom';
-// import Users from './components/registration/Users';
+import Login from './components/registration/Login';
 import Registration from './components/registration/Registration';
 import { Grid, Row, Col } from 'react-bootstrap';
 // import Authorization from './components/registration/Authorization';
@@ -23,47 +23,49 @@ export const store = createStore(
     rootReduser,
     applyMiddleware(middleware)
 );
-// function Logout(){
-//     localStorage.clear();
-//
-//     store.dispatch(push('/login'))
-// }
+function Logout(){
+    localStorage.clear();
+
+    store.dispatch(push('/login'))
+}
 export const Navigation = () => {
 
     return (
-        <Grid>
-            <Row className="show-grid">
-                <Col md={4} lg={3} sm={12} xs={12}>
-                    <div className="menu">
-                        <nav className="nav center">
-                            <ul>
-                                <li><Link to={`/`} className="active">PersonalAccounting</Link></li>
-                                {/*<li><Link to={`/users/${localStorage.getItem('id')}`} className="">My account</Link></li>*/}
-                                <li><Link to={`/registration/`} className="">Registration</Link></li>
-                                {/*{ localStorage.getItem('id') ? (*/}
-                                    {/*<li><a to={`/logout/`} onClick={Logout} className="">Logout</a></li>*/}
-                                {/*): (*/}
-                                    {/*<li><Link to={`/authorization/`} className="">Login</Link></li>*/}
-                                {/*) }*/}
-                            </ul>
-                        </nav>
-                    </div>
-                </Col>
-            </Row>
-        </Grid>
+        <header className="header">
+            <Grid>
+                <Row className="show-grid">
+                    <Col md={12} lg={12} sm={12} xs={12}>
+                        <div className="menu">
+                            <nav className="nav center">
+                                <ul className="menu-ul">
+                                    <li><Link to={`/`} className="active">PersonalAccounting</Link></li>
+                                    <li><Link to={`/users/${localStorage.getItem('id')}`} className="">My account</Link></li>
+                                    <li><Link to={`/registration/`} className="">Registration</Link></li>
+                                    { localStorage.getItem('api_key') ? (
+                                        <li><a to={`/logout/`} onClick={Logout} className="">Logout</a></li>
+                                    ): (
+                                        <li><Link to={`/login/`} className="">Login</Link></li>
+                                    ) }
+                                </ul>
+                            </nav>
+                        </div>
+                    </Col>
+                </Row>
+            </Grid>
+        </header>
     )
 };
 //
 ReactDOM.render(
-  
+
     <Provider store={store}>
         <ConnectedRouter history={history}>
             <div>
                 <Route exact path="/registration" component={Registration}/>
                 <Route exact path="/" component={PersonalAccounting}/>
-                {/*<Route exact path="/users/:id" component={Users}/>*/}
+                {/*<Route exact path="/users/:api_key" component={Users}/>*/}
 
-                {/*<Route exact path="/authorization" component={Authorization}/>*/}
+                <Route exact path="/login" component={Login}/>
 
             </div>
         </ConnectedRouter>

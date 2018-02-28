@@ -1,23 +1,103 @@
-.App {
-  text-align: center;
+@font-face {
+  font-family: "Lato";
+  font-weight: 300;
+  src: url("fonts/Lato-Light.ttf"); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 400;
+  src: url("fonts/Lato-Regular.ttf"); }
+
+@font-face {
+  font-family: "Lato";
+  font-weight: 600;
+  src: url("fonts/Lato-Bold.ttf"); }
+
+
+.body {
+  font-family: 'Lato', sans-serif;
+}
+/*.App {*/
+
+  /*text-align: center;*/
+/*}*/
+
+.header {
+  /*background-color: #222;*/
+  height: 300px;
+  /*padding: 20px;*/
+  background-color: #373737;
+  /*position: absolute;*/
+  width: 100%;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  display: block;
 }
 
-.App-header {
-  background-color: #222;
-  /*height: 50px;*/
-  padding: 20px;
+/*.App-title {*/
+  /*font-size: 1.5em;*/
+/*}*/
+
+/*.App-intro {*/
+  /*font-size: large;*/
+/*}*/
+
+/*@keyframes App-logo-spin {*/
+  /*from { transform: rotate(0deg); }*/
+  /*to { transform: rotate(360deg); }*/
+/*}*/
+.btn-registration{
+
+}
+.registrationform{
+  max-width: 350px;
+  position: absolute;
+  top: 20px;
+}
+.menu-ul{
+  display: flex;
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+.menu-ul li{
+  margin-right: 78px;
+  text-decoration: none;
+
+}
+.menu-ul li a{
   color: white;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 20px;
+
+}
+.menu-ul li a:hover{
+  color: cornflowerblue;
+
+
+}
+.menu-ul li:last-child{
+  margin-right: 0px;
+}
+.input-reg{
+  margin-bottom: 5px;
+}
+.wallet-app .container-fluid{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+ul.menu-ul{
+  -webkit-padding-start: 0px;
+  margin: 0 auto;
 }
 
-.App-title {
-  font-size: 1.5em;
+.btn-registration button{
+  margin: 0 auto;
 }
+.btn-registration .btn:hover{
+  background-color: dodgerblue;
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

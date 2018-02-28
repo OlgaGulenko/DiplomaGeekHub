@@ -1,83 +1,87 @@
 import React, { Component } from 'react';
-// import { Button, Form,Grid, Row, Col, ButtonToolbar, FormGroup, FormControl } from 'react-bootstrap';
-// import { push } from 'react-router-redux'
-// import {store, Navigation} from '../../index';
+import { Button, Form,Grid, Row, Col, ButtonToolbar, FormGroup, FormControl } from 'react-bootstrap';
+import { push } from 'react-router-redux'
+import {store, Navigation} from '../../index';
 
-class Authorization extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            login: '',
-            password: '',
-            email: '',
-        };
-        this.change = this.change.bind(this);
-        this.send = this.send.bind(this);
-    }
+class Login extends Component{
 
-    change (e) {
-        const state = this.state;
-        state[e.target.name] = e.target.value;
-        this.setState(state);
-        console.log(this.state)
+constructor(props){
+    super(props);
+
+    this.state = {
+        email: '',
+        password: '',
+        // isValid: true,
+        gets:'',
+        api_key:''
+
     };
+};
+handleChange = (e) =>{
+    switch (e.target.name)
+    {
+        case 'email':
+            this.setState({email:e.target.value});
+            break;
+        case 'password':
+            this.setState({password:e.target.value});
+            break;
+    }
+}
+Login(){
+    let url ='http://gh-wallet.herokuapp.com/api/v1/users?email='+this.state.email+'&password='+this.state.password;
+    fetch(url, {method:'get', headers: {'Content-Type': 'application/json'}} )
+        .then(response => response.json())
+        .then(response => {
+            if(response!==''){
 
+                localStorage.setItem('email', this.state.email);
+                localStorage.setItem('password', this.state.password);
+                debugger;
+                localStorage.setItem('api_key', response.users.api_key);
+
+                store.dispatch(push('/users/'+ response.users.api_key))
+            }
+            else {
+                alert("Incorrect email or password!")
+            }
+        })
+}
 
     render() {
-        const list = this.state.users.map((user, index) => {
-            return (
-                <li key={index}>
-                    <strong>{user.name}</strong><br/>
-                    <strong><h4>Author:{user.email}</h4></strong>
-                </li>
-            )
-        })
         return (
             <div className="container-fluid">
-                {/*<Row className="show-grid">*/}
-                    {/*<Col md={12} lg={12} sm={12} xs={12}>*/}
-                        {/*<div className='regisrform'>*/}
-                            {/*<FormGroup>*/}
-                                {/*<FormControl*/}
-                                    {/*type="text"*/}
-                                    {/*name="login"*/}
-                                    {/*placeholder="Login"*/}
-                                    {/*onChange={this.change}*/}
-                                {/*/>*/}
-                                {/*<FormControl*/}
-                                    {/*type="password"*/}
-                                    {/*name="password"*/}
-                                    {/*placeholder="Password"*/}
-                                    {/*onChange={this.change}*/}
-                                {/*/>*/}
-
-                                {/*<FormControl*/}
-                                    {/*type="email"*/}
-                                    {/*name="email"*/}
-                                    {/*placeholder="Email"*/}
-                                    {/*onChange={this.change}*/}
-                                {/*/>*/}
-                                {/*<FormControl*/}
-                                    {/*type="date"*/}
-                                    {/*name="birthday"*/}
-                                    {/*onChange={this.change}*/}
-                                {/*/>*/}
-                                {/*<FormControl.Feedback />*/}
-                            {/*</FormGroup>*/}
-                            {/*<ButtonToolbar>*/}
-                                {/*<Button bsStyle="primary" onClick={this.send}>*/}
-                                    {/*Add user*/}
-                                {/*</Button>*/}
-                            {/*</ButtonToolbar>*/}
-                        {/*</div>*/}
-                        <div className='regisrform'>
-                            { list }
+                <Navigation/>
+                <Row className="show-grid">
+                    <Col md={12} lg={12} sm={12} xs={12}>
+                        <div className='registrationform'>
+                            <FormGroup>
+                                <FormControl
+                                    label="Email address"
+                                    type="text"
+                                    value={this.state.email}
+                                    placeholder="Enter your email here"
+                                    onChange={(event) => this.setState({ email: event.target.value })}
+                                />
+                                <FormControl.Feedback />
+                                <FormControl
+                                    label="Password"
+                                    type="text"
+                                    value={this.state.password}
+                                    placeholder="Password"
+                                    onChange={(event) => this.setState({ password: event.target.value })}
+                                />
+                                <FormControl.Feedback />
+                            </FormGroup>
+                            <ButtonToolbar>
+                                <Button bsStyle="success" bsSize="large" active onClick={this.Login.bind(this)}>Login</Button>
+                            </ButtonToolbar>
                         </div>
-                    {/*</Col>*/}
-                {/*</Row>*/}
+                    </Col>
+                </Row>
             </div>
         );
     }
 }
 
-export default Authorization;
+export default Login;

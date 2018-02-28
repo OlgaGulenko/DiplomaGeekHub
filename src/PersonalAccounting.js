@@ -5,6 +5,7 @@ import Authorization from "./components/registration/Login";
 // import { store } from './index';
 // import { Link } from 'react-router-dom';
 import Registration from "./components/registration/Registration";
+// import { Navigation } from '../index';
 class PersonalAccounting extends Component {
 
 
@@ -12,11 +13,8 @@ class PersonalAccounting extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div className="wallet-app">
 
-        <header className="App-header">
-          <h1 className="App-title">Welcome to your personal accounting manager</h1>
-        </header>
           {/*<Animation/>*/}
           {/*<Authorization/>*/}
           <Registration/>
