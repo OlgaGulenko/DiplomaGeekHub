@@ -24,7 +24,6 @@
 
 .header {
   /*background-color: #222;*/
-  height: 300px;
   /*padding: 20px;*/
   background-color: #373737;
   /*position: absolute;*/
@@ -32,8 +31,9 @@
   overflow: hidden;
   padding: 0;
   margin: 0;
-  position: relative;
   display: block;
+  position: relative;
+  height: auto;
 }
 
 /*.App-title {*/
@@ -92,12 +92,26 @@
 ul.menu-ul{
   -webkit-padding-start: 0px;
   margin: 0 auto;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
-.btn-registration button{
+.btn-registration button {
   margin: 0 auto;
+  color: #00e092;
+  background-color: rgba(0,0,0,0);
+  border-color: #00e092;
+  font-size: 18px;
+  box-shadow: none;
 }
 .btn-registration .btn:hover{
-  background-color: dodgerblue;
+  background-color: rgba(0,0,0,0.1);
 
+}
+body{
+  padding-right: 0;
+  padding-left: 0;
+}
+.cont-marg{
+  padding: 0;
 }

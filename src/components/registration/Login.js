@@ -37,7 +37,7 @@ Login(){
 
                 localStorage.setItem('email', this.state.email);
                 localStorage.setItem('password', this.state.password);
-                debugger;
+                // debugger;
                 localStorage.setItem('api_key', response.users.api_key);
 
                 store.dispatch(push('/users/'+ response.users.api_key))
