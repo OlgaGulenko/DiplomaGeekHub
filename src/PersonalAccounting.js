@@ -18,6 +18,32 @@ class PersonalAccounting extends Component {
           {/*<Animation/>*/}
           {/*<Authorization/>*/}
           <Registration/>
+          <div className="about-us ">
+              <div className="advantage-1 pure-u-1 pure-u-lg-1-5">
+                  <div className="thumbnail">
+                      <img src={ require('./img/money.svg')} alt="Check incomes"/>
+                      <div>
+                          Check incomes
+                      </div>
+                  </div>
+              </div>
+              <div className="advantage-2 pure-u-1 pure-u-lg-1-5">
+                  <div className="thumbnail">
+                      <img src={ require('./img/clipboard.svg')} alt="Control expense"/>
+                      <div>
+                          Control expense
+                      </div>
+                  </div>
+              </div>
+              <div className="advantage-3 pure-u-1 pure-u-lg-1-5">
+                  <div className="thumbnail">
+                      <img src={ require('./img/bar-chart.svg')} alt="Plan profits"/>
+                      <div>
+                          Plan profits
+                      </div>
+                  </div>
+              </div>
+          </div>
       </div>
     );
   }

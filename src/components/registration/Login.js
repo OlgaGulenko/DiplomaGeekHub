@@ -3,6 +3,7 @@ import {Button, Form, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl} fro
 import {push} from 'react-router-redux'
 import {store, Navigation} from '../../index';
 
+
 class Login extends Component {
 
     constructor(props) {
@@ -14,7 +15,11 @@ class Login extends Component {
             api_key:''
 
         };
+        // export const apikey = this.state.api_key;
+        // console.log(apikey);
+
     };
+
     Login() {
 
         let loginData = JSON.stringify({
@@ -41,6 +46,7 @@ class Login extends Component {
 
                     localStorage.setItem('email', this.state.email);
                     localStorage.setItem('password', this.state.password);
+                    localStorage.setItem('apikey', this.state.api_key);
                 }
                 else {
                     alert("Incorrect email or password!")
@@ -75,7 +81,7 @@ class Login extends Component {
                                 <FormControl.Feedback/>
                             </FormGroup>
                             <ButtonToolbar>
-                                <Button bsStyle="success" bsSize="large" active
+                                <Button bsStyle="success" bsSize="sm" active
                                         onClick={this.Login.bind(this)}>Login</Button>
                             </ButtonToolbar>
                         </div>
