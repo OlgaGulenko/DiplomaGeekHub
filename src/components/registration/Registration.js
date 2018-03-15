@@ -95,7 +95,7 @@ class Registration extends Component {
                                     <FormControl.Feedback />
                                 </FormGroup>
                                 <ButtonToolbar className="btn-registration">
-                                    <Button bsSize="middle" onClick={this.CreateAccount.bind(this)}>Create account</Button>
+                                    <Button bsSize="sm" onClick={this.CreateAccount.bind(this)}>Create account</Button>
                                 </ButtonToolbar>
                             </div>
                         </Col>
