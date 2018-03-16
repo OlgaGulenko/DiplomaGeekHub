@@ -58,12 +58,11 @@ class Registration extends Component {
 
     render() {
         return (
-
             <div className="container-fluid">
                 <Navigation/>
                 <Grid>
-                    <Row className="show-grid">
-                        <Col md={6} lg={6} sm={12} xs={12}>
+                    <Row className="show-grid red">
+                        <Col md={12} lg={12} sm={12} xs={12}>
                             <div className="registrationform" >
                                 <FormGroup>
                                     <FormControl
@@ -95,7 +94,7 @@ class Registration extends Component {
                                     <FormControl.Feedback />
                                 </FormGroup>
                                 <ButtonToolbar className="btn-registration">
-                                    <Button bsStyle="primary" bsSize="large" active onClick={this.CreateAccount.bind(this)}>Create account</Button>
+                                    <Button bsStyle="primary" bsSize="middle" active onClick={this.CreateAccount.bind(this)}>Create account</Button>
                                 </ButtonToolbar>
                             </div>
                         </Col>
