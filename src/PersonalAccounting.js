@@ -18,29 +18,45 @@ class PersonalAccounting extends Component {
           {/*<Animation/>*/}
           {/*<Authorization/>*/}
           <Registration/>
-          <div className="about-us ">
-              <div className="advantage-1 pure-u-1 pure-u-lg-1-5">
-                  <div className="thumbnail">
-                      <img src={ require('./img/money.svg')} alt="Check incomes"/>
-                      <div>
-                          Check incomes
+          <div id="pause-trigger"></div>
+          <div id="pause-root">
+              <div className="screen red-bg" id="red-screen">
+                  <div className="row">
+                      <div className="about-us pure-g">
+                          <div className="advantage-1 pure-u-1 pure-u-lg-1-5 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                              <div className="thumbnail">
+                                  <img src={ require('./img/graph-3.svg')} alt="Check incomes"/>
+                                  <div className="descr">
+                                      Check incomes
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="advantage-2 pure-u-1 pure-u-lg-1-5 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                              <div className="thumbnail">
+                                  <img src={ require('./img/time-is-money-2.svg')} alt="Control expense"/>
+                                  <div  className="descr">
+                                      Control expense
+                                  </div>
+                              </div>
+                          </div>
+                          <div className="advantage-3 pure-u-1 pure-u-lg-1-5 col-lg-4 col-md-4 col-sm-12 col-xs-12">
+                              <div className="thumbnail">
+                                  <img src={ require('./img/presentation-13.svg')} alt="Plan profits"/>
+                                  <div  className="descr">
+                                      Plan profits
+                                  </div>
+                              </div>
+                          </div>
                       </div>
                   </div>
               </div>
-              <div className="advantage-2 pure-u-1 pure-u-lg-1-5">
-                  <div className="thumbnail">
-                      <img src={ require('./img/clipboard.svg')} alt="Control expense"/>
-                      <div>
-                          Control expense
-                      </div>
+              <div className="screen yellow-bg" data-screen>
+
+                  <div className="device-screen-anchor">
+
                   </div>
-              </div>
-              <div className="advantage-3 pure-u-1 pure-u-lg-1-5">
-                  <div className="thumbnail">
-                      <img src={ require('./img/bar-chart.svg')} alt="Plan profits"/>
-                      <div>
-                          Plan profits
-                      </div>
+                  <div className="device-block">
+
                   </div>
               </div>
           </div>

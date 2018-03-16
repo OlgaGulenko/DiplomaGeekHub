@@ -15,14 +15,14 @@ class Wallet extends Component {
 
     }
     GetWallet(){
-        let apikey= localStorage.getItem('api_key')
-        console.log(apikey);
+        let api_key= localStorage.getItem('api_key');
+        console.log(api_key);
         let url ='http://gh-wallet.herokuapp.com/api/v1/wallet';
         fetch(url,{
             method:'get',
             headers: {
                 'Content-Type': 'application/json',
-                'x-api-key': apikey,
+                'x-api-key': api_key,
 
             }})
             .then(response => response.json())

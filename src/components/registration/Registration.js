@@ -60,47 +60,51 @@ class Registration extends Component {
         return (
         <div>
             <div className="container-fluid cont-marg">
-                <Navigation/>
-                <Grid>
-                    <Row className="show-grid">
-                        <Col md={6} lg={6} sm={12} xs={12}>
-                            <div className="registrationform" >
-                                <FormGroup>
-                                    <FormControl
-                                        className="input-reg"
-                                        label="Name"
-                                        type="text"
-                                        value={this.state.names}
-                                        placeholder="Enter your name here"
-                                        onChange={(event) => this.setState({ names: event.target.value })}
-                                    />
-                                    <FormControl.Feedback />
-                                    <FormControl
-                                        className="input-reg"
-                                        label="Email address"
-                                        type="text"
-                                        value={this.state.email}
-                                        placeholder="Enter your email here"
-                                        onChange={(event) => this.setState({ email: event.target.value })}
-                                    />
-                                    <FormControl.Feedback />
-                                    <FormControl
-                                        className="input-reg"
-                                        label="Password"
-                                        type="text"
-                                        value={this.state.password}
-                                        placeholder="Password"
-                                        onChange={(event) => this.setState({ password: event.target.value })}
-                                    />
-                                    <FormControl.Feedback />
-                                </FormGroup>
-                                <ButtonToolbar className="btn-registration">
-                                    <Button bsSize="sm" onClick={this.CreateAccount.bind(this)}>Create account</Button>
-                                </ButtonToolbar>
-                            </div>
-                        </Col>
-                    </Row>
-                </Grid>
+
+                <div className="header-reg">
+                    <div className="mask"></div>
+                    <Navigation/>
+                    <Grid>
+                        <Row className="show-grid">
+                            <Col md={4} lg={4} sm={12} xs={12}>
+                                <div className="registrationform" >
+                                    <FormGroup>
+                                        <FormControl
+                                            className="input-reg"
+                                            label="Name"
+                                            type="text"
+                                            value={this.state.names}
+                                            placeholder="Enter your name here"
+                                            onChange={(event) => this.setState({ names: event.target.value })}
+                                        />
+                                        <FormControl.Feedback />
+                                        <FormControl
+                                            className="input-reg"
+                                            label="Email address"
+                                            type="text"
+                                            value={this.state.email}
+                                            placeholder="Enter your email here"
+                                            onChange={(event) => this.setState({ email: event.target.value })}
+                                        />
+                                        <FormControl.Feedback />
+                                        <FormControl
+                                            className="input-reg"
+                                            label="Password"
+                                            type="text"
+                                            value={this.state.password}
+                                            placeholder="Password"
+                                            onChange={(event) => this.setState({ password: event.target.value })}
+                                        />
+                                        <FormControl.Feedback />
+                                    </FormGroup>
+                                    <ButtonToolbar className="btn-registration">
+                                        <Button bsSize="sm" onClick={this.CreateAccount.bind(this)}>Create account</Button>
+                                    </ButtonToolbar>
+                                </div>
+                            </Col>
+                        </Row>
+                    </Grid>
+                </div>
             </div>
         </div>
 
