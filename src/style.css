@@ -19,89 +19,338 @@
 }
 
 .header {
-  height: 300px;
-  /*padding: 20px;*/
-  background-color: #373737;
-  /*position: absolute;*/
   width: 100%;
   overflow: hidden;
   padding: 0;
   margin: 0;
-  position: relative;
   display: block;
+  position: relative;
+  height: auto;
+
 }
 
-.registrationform{
-  max-width: 350px;
-  position: absolute;
-  top: 20px;
-}
 .menu-ul{
   display: flex;
   list-style-type: none;
   text-decoration: none;
   color: black;
 }
-li.menu-li{
+
+.menu-ul li a{
+  color: white;
   text-decoration: none;
-  list-style-type: none;
-  right: 40px;
-  display: inline;
-  margin-right: 5px;
-  /*border: 1px solid #000;*/
-  padding: 3px;
-}
-li.menu-li a{
-  color: #373737;
+  color: rgba(255, 248, 63,1);
   text-decoration: none;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 20px;
+
 }
-
-
-
-
 .menu-ul li a:hover{
-  color: cornflowerblue;
+  color: white;
 
 
 }
 .menu-ul li:last-child{
-  margin-right: 0;
+  margin-right: 0px;
 }
 .input-reg{
-  margin-bottom: 5px;
+  margin-bottom: 10px;
+  background-color: rgba(0,0,0,0.4);
 }
 .wallet-app .container-fluid{
+  padding-right: 0px;
+  padding-left: 0px;
+}
+ul.menu-ul{
+  -webkit-padding-start: 0px;
+  margin: 0 auto;
+  padding-bottom: 15px;
+  padding-top: 15px;
+}
+
+.btn-registration button {
+  margin: 0 auto;
+  color: #000000;
+  /*background-color: rgba(255,255,255,0.4);*/
+  background-color: rgba(0, 0, 0, 0.5);
+  border-color: #000000;
+  font-size: 18px;
+  box-shadow: none;
+  background-image: none;
+  background-repeat-x: no-repeat;
+  text-shadow: none;
+  color: rgba(255, 248, 63,1);
+}
+
+.btn-registration .btn:hover{
+  /*background-color: rgba(94, 219, 81,0.5);*/
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-shadow: none;
+}
+body{
   padding-right: 0;
   padding-left: 0;
 }
-.menu .nav ul{
-  -webkit-padding-start: 0;
-  margin-top: 15px;
+.cont-marg{
+  padding: 0;
+}
+
+
+
+@media (min-width: 992px){
+  .about-us .thumbnail img {
+    margin: auto;
+    width: 90px;
+    height: 90px;
+    display: block;
+    cursor: pointer;
+  }
+  .pure-u-lg-1-5{
+    display: inline-block;
+    padding: 23px;
+  }
+  .menu-ul li{
+    margin-right: 78px;
+    text-decoration: none;
+
+  }
+  .about-us{
+    min-height: auto;
+    float: right;
+    /*margin: 313px 0 153px;*/
+    position: relative;
+    display: block;
+    width: 100%;
+    background-color: #fff965;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    top:-100px;
+
+  }
+  .btn-registration{
+    max-width: 350px;
+  }
+  .header-reg{
+    overflow: hidden;
+    width: 100%;
+    background-color: dimgrey;
+    background-image: url('img/header-background-2.jpg');
+    background-size: 100%;
+    height: 700px;
+  }
+  .header-log{
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    background-color: dimgrey;
+    background-image: url('img/header-background-2.jpg');
+    background-size: 100%;
+  }
+  .header-log .mask{
+    height: 100vh;
+  }
+  .registrationform{
+    width: 100%;
+    position: absolute;
+    top: 50px;
+  }
+  .mask{
+    width: 100%;
+    height: 700px;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+  }
+  .descr{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .yellow-bg{
+    height: 100px;
+    top: 867px;
+    position: absolute;
+    width: 100%;
+    background-color: whitesmoke
+  }
+  .wallet{
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    top: 30px;
+  }
+  .wallet img{
+    height: 245px;
+  }
+  li.total-income{
+    margin-top: -115px;
+  }
+  li.total-expense{
+    margin-top: -115px;
+  }
+  div.total-income{
+    text-align: left;
+  }
+  div.total-expense{
+    text-align: right;
+  }
+  .incomeform{
+    top:200px;
+  }
+
+
+}
+@media (max-width: 991px) {
+  .about-us .thumbnail img {
+    margin: auto;
+    width: 80px;
+    height: 80px;
+    display: block;
+    cursor: pointer;
+  }
+  .pure-u-lg-1-5{
+    padding: 23px;
+    margin: 0 auto;
+  }
+  .about-us{
+    min-height: auto;
+    position: relative;
+    display: block;
+    background-color: #fff965;
+
+  }
+  .menu-ul li {
+    margin-right: 27px;
+    text-decoration: none;
+  }
+  .header-reg{
+    overflow: hidden;
+    width: 100%;
+    height: 350px;
+    background-color: dimgrey;
+    background-image: url('img/header-background-2.jpg');
+    background-size: auto;
+  }
+  .header-log{
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    background-color: dimgrey;
+    background-image: url('img/header-background-2.jpg');
+    background-size: auto;
+  }
+  .header-log .mask{
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+  }
+  .registrationform{
+    max-width: 350px;
+    margin: 0 auto;
+    margin-top: 28px;
+  }
+  .mask{
+    width: 100%;
+    height: 350px;
+    background-color: rgba(0,0,0,0.6);
+    position: absolute;
+  }
+  .descr{
+    margin-top: 10px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  .about-us{
+    width: 100%;
+  }
+  .yellow-bg{
+    height: 100px;
+    top: 867px;
+    position: absolute;
+    width: 100%;
+    background-color: whitesmoke
+  }
+  .wallet{
+    height: 220px;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    top: 30px;
+  }
+  .wallet img{
+    height: 245px;
+  }
+  div.total-income,div.total-expense{
+    text-align: center;
+  }
+  div.total-income{
+    margin-top: 30px;
+  }
+  .incomeform {
+    margin-top: 288px;
+  }
+}
+@media (max-width: 991px) and (min-width: 768px){
+  .registrationform{
+    min-width: 350px;
+    position: absolute;
+  }
+  .incomeform {
+    top: 40px;
+  }
 
 }
 
-.btn-registration button{
-  margin: 0 auto;
+.red-bg .thumbnail.-shown {
+  opacity: 1;
 }
-.btn-registration .btn:hover{
-  background-color: dodgerblue;
-
-}
-.menu nav{
-  display: -webkit-box;
-  display: -ms-flexbox;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  padding-left: 0;
-  list-style: none;
-  vertical-align: middle;
-  width: 100%;
-  height: 50px;
+.red-bg .thumbnail {
+  margin: auto;
   text-align: center;
-  display: inline;
+  opacity: 0;
+  -webkit-transition: opacity .3s ease-in;
+  transition: opacity .3s ease-in;
 }
-.red{
-  background-color: red;
+.about-us .thumbnail {
+  box-shadow: none;
 }
+.red-bg{
+  min-height: auto;
+  background-color: #fff965;
+  padding: 0;
+  position: relative;
+}
+.screen {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.red-bg .border:after {
+   background: black;
+ }
+.wallet-li{
+  list-style-type: none;
+}
+div.profit{
+  text-align: center;
+  color: orangered;
+  font-weight: 600;
+  font-size: 20px;
+
+}
+li.profit{
+  margin-top: -115px;
+}
+div.total-income{
+  font-weight: 600;
+  font-size: 20px;
+  color: green;
+}
+div.total-expense{
+  font-weight: 600;
+  font-size: 20px;
+  color: green;
+}
+
+
