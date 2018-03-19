@@ -1,16 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="dfcf2abd-f4d6-4426-bfed-963fc1a94904" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change beforePath="$PROJECT_DIR$/src/PersonalAccounting.js" afterPath="$PROJECT_DIR$/src/PersonalAccounting.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/registration/Login.js" afterPath="$PROJECT_DIR$/src/components/registration/Login.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/registration/Registration.js" afterPath="$PROJECT_DIR$/src/components/registration/Registration.js" />
-      <change beforePath="$PROJECT_DIR$/src/components/wallet/Wallet.js" afterPath="$PROJECT_DIR$/src/components/wallet/Wallet.js" />
-      <change beforePath="$PROJECT_DIR$/src/img/wallet.svg" afterPath="$PROJECT_DIR$/src/img/wallet.svg" />
-      <change beforePath="$PROJECT_DIR$/src/style.css" afterPath="$PROJECT_DIR$/src/style.css" />
-    </list>
+    <list default="true" id="dfcf2abd-f4d6-4426-bfed-963fc1a94904" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,8 +14,8 @@
       <file leaf-file-name="PersonalAccounting.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/PersonalAccounting.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="43" />
+            <state relative-caret-position="371">
+              <caret line="28" column="57" lean-forward="true" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
               <folding>
                 <element signature="e#0#41#0" expanded="true" />
               </folding>
@@ -291,12 +282,12 @@
       <workItem from="1521109270623" duration="1292000" />
       <workItem from="1521110928744" duration="108000" />
       <workItem from="1521116860452" duration="10493000" />
-      <workItem from="1521186753883" duration="22724000" />
+      <workItem from="1521186753883" duration="22897000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="95538000" />
+    <option name="totallyTimeSpent" value="95711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="46" width="1610" height="1052" extended-state="0" />
@@ -670,8 +661,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PersonalAccounting.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="22" column="43" lean-forward="false" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="43" />
+        <state relative-caret-position="371">
+          <caret line="28" column="57" lean-forward="true" selection-start-line="28" selection-start-column="57" selection-end-line="28" selection-end-column="57" />
           <folding>
             <element signature="e#0#41#0" expanded="true" />
           </folding>
