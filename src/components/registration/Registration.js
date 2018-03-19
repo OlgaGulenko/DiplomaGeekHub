@@ -66,8 +66,8 @@ class Registration extends Component {
                     <Navigation/>
                     <Grid>
                         <Row className="show-grid">
-                            <Col md={4} lg={4} sm={12} xs={12}>
-                                <div className="registrationform" >
+                            <Col md={12} lg={12} sm={12} xs={12}>
+                                <div className=" registr" >
                                     <FormGroup>
                                         <FormControl
                                             className="input-reg"

@@ -25,7 +25,9 @@ class PersonalAccounting extends Component {
                       <div className="about-us pure-g">
                           <div className="advantage-1 pure-u-1 pure-u-lg-1-5 col-lg-4 col-md-4 col-sm-12 col-xs-12">
                               <div className="thumbnail">
-                                  <img src={ require('./img/graph-3.svg')} alt="Check incomes"/>
+                                  <a href='http://localhost:3000/wallet/'>
+                                    <img src={ require('./img/graph-3.svg')} alt="Check incomes"/>
+                                  </a>
                                   <div className="descr">
                                       Check incomes
                                   </div>

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button, Form, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl} from 'react-bootstrap';
+import {Button, Form, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl, Link} from 'react-bootstrap';
 import {push} from 'react-router-redux'
 import {store, Navigation} from '../../index';
 
@@ -44,9 +44,9 @@ class Login extends Component {
 
                 if (response !== '') {
 
-                    localStorage.setItem('email', this.state.email);
+                    localStorage.setItem('email', response.user.email);
                     localStorage.setItem('password', this.state.password);
-                    localStorage.setItem('api_key', this.state.api_key);
+                    localStorage.setItem('api_key', response.user.api_key);
                 }
                 else {
                     alert("Incorrect email or password!")
@@ -64,8 +64,8 @@ class Login extends Component {
                         <Navigation/>
                         <Grid>
                             <Row className="show-grid">
-                                <Col md={4} lg={4} sm={12} xs={12}>
-                                    <div className='registrationform'>
+                                <Col md={12} lg={12} sm={12} xs={12}>
+                                    <div className='loginform registr'>
                                         <FormGroup>
                                             <FormControl
                                                 className="input-reg"

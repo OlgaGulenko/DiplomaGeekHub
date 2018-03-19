@@ -39,8 +39,8 @@ export const Navigation = () => {
                         <div className="menu">
                             <nav className="nav center">
                                 <ul className="menu-ul">
-                                    <li><Link to={`/`} className="active">PersonalAccounting</Link></li>
-                                    <li><Link to={`/wallet/:api_key`} className="active">Wallet</Link></li>
+                                    <li><Link to={`/`} className="active">Home page</Link></li>
+                                    <li><Link to={`/wallet/`} className="active">Wallet</Link></li>
                                     <li><Link to={`/registration/`} className="">Registration</Link></li>
                                     {/*<li><Link to={`/users/${localStorage.getItem('id')}`} className="">My account</Link></li>*/}
                                     { localStorage.getItem('api_key') ? (
@@ -66,7 +66,7 @@ ReactDOM.render(
                 <Route exact path="/registration" component={Registration}/>
                 <Route exact path="/" component={PersonalAccounting}/>
                 {/*<Route exact path="/users/:api_key" component={Users}/>*/}
-                <Route exact path="/wallet/:api_key" component={Wallet}/>
+                <Route exact path="/wallet/" component={Wallet}/>
                 <Route exact path="/login" component={Login}/>
 
             </div>

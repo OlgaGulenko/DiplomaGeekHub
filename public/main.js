@@ -124,4 +124,16 @@ $(document).ready(function () {
         controller.scrollTo($(this).attr('href'))
     });
 
-})
+    var elem = document.getElementsByClassName("inp");
+
+    inp.onclick = function () {
+
+        if(this.style.backgroundColor)
+            this.style.backgroundColor = "#373737";
+
+        else
+            this.style.backgroundColor = "#373737";
+
+    }
+
+});
