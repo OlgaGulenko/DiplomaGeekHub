@@ -99,7 +99,7 @@ class Wallet extends Component {
             .then(response => {
                 console.log(response);
                 this.setState ({
-                    categories: response
+                    categories: response.categories
                 });
                 if (response !== '') {
                     localStorage.setItem('categories', response.categories);
@@ -269,11 +269,19 @@ class Wallet extends Component {
                                         <DropdownButton
                                             label="Category"
                                             title="Category"
+                                            id="categoriesDropdown"
                                             key={this.state.categories}
-                                            onSelect={(eventKey) => {this.setState({ categories: eventKey })}}
+                                            onSelect={(eventKey) => {this.setState({ category_id: eventKey })}}
                                             onClick={this.GetCategory.bind(this)}
                                         >
-                                            <MenuItem eventKey={localStorage.getItem('category_id')}>{localStorage.getItem('title_category')}</MenuItem>
+                                            {this.state.categories.map((category) =>{
+                                                console.log(category);
+                                                return(
+                                                    <MenuItem eventKey={category.id} key={category.id}>
+                                                        {category.title}
+                                                    </MenuItem>
+                                                )
+                                            })}
                                         </DropdownButton>
 
                                     </FormGroup>
