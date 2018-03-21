@@ -133,7 +133,7 @@ class Wallet extends Component {
                 amount:this.state.amount ,
                 comment:this.state.comment,
                 // categories:this.state.category_id,
-                userId:this.state.user_id
+                // userId:this.state.user_id
             }
 
 
@@ -145,7 +145,9 @@ class Wallet extends Component {
         fetch(urlincome,{
             method:'post',
             body:incomeData,
-            headers: {'Content-Type': 'application/json'
+            headers: {
+                'Content-Type': 'application/json',
+                'x-api-key': api_key,
             }})
             .then(response => response.json())
             .then(response => {
