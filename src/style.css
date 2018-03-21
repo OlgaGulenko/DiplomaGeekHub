@@ -338,6 +338,8 @@ body{
 }
 .about-us .thumbnail {
   box-shadow: none;
+  background-color: #fff965;
+  border: none;
 }
 .red-bg{
   min-height: auto;

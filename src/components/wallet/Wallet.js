@@ -21,28 +21,13 @@ class Wallet extends Component {
             comment:'',
             category_id:'',
             user_id:'',
-            // kind:,
             title_category:'',
             date: moment(),
             // is_deleted:'bool',
             // created_at:'',
             // updated_at:'',
-            // kind: [
-            //     {
-            //         "id": 1,
-            //         "name": "income"
-            //     },
-            //     {
-            //         "id": 2,
-            //         "name": "expense"
-            //     },
-            //
-            // ],
 
             categories:[]
-
-
-            // user: [],
         };
         this.handleChange = this.handleChange.bind(this);
 
@@ -103,7 +88,6 @@ class Wallet extends Component {
                 });
                 if (response !== '') {
                     localStorage.setItem('categories', response.categories);
-
                     localStorage.setItem('category_id', response.categories.id);
                     // localStorage.setItem('kind', response.categories.kind);
                     localStorage.setItem('title_category', response.categories.title);
@@ -127,21 +111,19 @@ class Wallet extends Component {
     CreateIncome(){
         var value = new Date().toISOString();
         let api_key= localStorage.getItem('api_key');
+        let category_id = localStorage.getItem('category_id');
         let incomeData = JSON.stringify({
             entry: {
                 date:this.state.date,
                 amount:this.state.amount ,
                 comment:this.state.comment,
-                // categories:this.state.category_id,
-                // userId:this.state.user_id
+                category_id,
+
             }
-
-
         });
         console.log(incomeData);
-        // console.log(incomeData);
-        // console.log(api_key);
-        let urlincome ='http://gh-wallet.herokuapp.com/api/v1/categories/4/entries';
+        // console.log(category_id);
+        let urlincome ='http://gh-wallet.herokuapp.com/api/v1/categories/'+category_id+'/entries';
         fetch(urlincome,{
             method:'post',
             body:incomeData,
@@ -155,58 +137,12 @@ class Wallet extends Component {
                     post: response
                 });
             });
-        // function renderDropdownButton(title, i) {
-        //     return (
-        //         <DropdownButton
-        //             bsStyle={title.toLowerCase()}
-        //             title={title}
-        //             key={i}
-        //             id={`dropdown-basic-${i}`}
-        //             label="Category"
-        //             onClick={this.GetCategory.bind(this)}
-        //         >
-        //             <MenuItem eventKey="1">Action</MenuItem>
-        //             <MenuItem eventKey="2">Another action</MenuItem>
-        //             <MenuItem eventKey="3" active>
-        //                 Active Item
-        //             </MenuItem>
-        //             <MenuItem divider />
-        //             <MenuItem eventKey="4">Separated link</MenuItem>
-        //         </DropdownButton>
-        //     );
-        // }
-        // const buttonsInstance = (
-        //     <ButtonToolbar>{response.categories.map(renderDropdownButton)}</ButtonToolbar>
-        // );
-        // const Datapicker = React.createClass({
-        //     getInitialState: function(){
-        //         var value = new Date().toISOString();
-        //         return {
-        //             value: value
-        //         }
-        //     },
-        //     handleChange: function(value, formattedValue) {
-        //         this.setState({
-        //             value: value, // ISO String, ex: "2016-11-19T12:00:00.000Z"
-        //             formattedValue: formattedValue // Formatted String, ex: "11/19/2016"
-        //         });
-        //     },
-        //     componentDidUpdate: function(){
-        //         // Access ISO String and formatted values from the DOM.
-        //         var hiddenInputElement = document.getElementById("example-datepicker");
-        //         console.log(hiddenInputElement.value); // ISO String, ex: "2016-11-19T12:00:00.000Z"
-        //         console.log(hiddenInputElement.getAttribute('data-formattedvalue')) // Formatted String, ex: "11/19/2016"
-        //     }
 
 }
 
     render() {
-        // const menuitems = this.state.categories.map((categories, index) => (
-        //     <MenuItem key={index} eventKey={categories.id}>{categories.title}</MenuItem>
-        // ));
 
         return (
-            // { localStorage.getItem('id') ? (
             <div className='walletpage'>
                 { (localStorage.getItem('api_key' ))!== null ? (
                 <div className="container-fluid">
@@ -276,10 +212,10 @@ class Wallet extends Component {
                                             onSelect={(eventKey) => {this.setState({ category_id: eventKey })}}
                                             onClick={this.GetCategory.bind(this)}
                                         >
-                                            {this.state.categories.map((category) =>{
-                                                console.log(category);
+                                            {this.state.categories.map((category, index) =>{
+                                                console.log(category.id);
                                                 return(
-                                                    <MenuItem eventKey={category.id} key={category.id}>
+                                                    <MenuItem eventKey={category.id} key={index}>
                                                         {category.title}
                                                     </MenuItem>
                                                 )
@@ -300,9 +236,6 @@ class Wallet extends Component {
                         alert('Please create your account or login'),
                         window.location.href = 'http://localhost:3000/login/') }
             </div>
-            // ) : (
-            //
-            // )}
 
         );
     }
