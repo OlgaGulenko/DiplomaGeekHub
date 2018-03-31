@@ -154,16 +154,8 @@ body{
     height: 100vh;
   }
   .registr{
-    /*position: fixed;*/
-    /*top: 50%;*/
-    /*left: 50%;*/
-    /*width: 30em;*/
-    /*height: 18em;*/
-    /*margin-top: -9em;*/
-    /*margin-left: -15em;*/
     width: 30em;
     height: 18em;
-    /*margin-top: 123px;*/
     margin: 0 auto;
     padding-top: 192px;
   }
@@ -214,9 +206,17 @@ body{
   .incomeform{
     top:200px;
     text-align: center;
+    max-width: 400px;
   }
   .incomeform span{
-    color: yellow;;
+    color: yellow;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .walletpage{
+    background-color: black;
+    height: 1500px;
+    width: 100%;
   }
 
 
@@ -311,6 +311,7 @@ body{
   .incomeform {
     margin-top: 288px;
   }
+
 }
 @media (max-width: 991px) and (min-width: 768px){
   .registrationform{
@@ -386,7 +387,7 @@ div.total-expense{
 }
 .walletpage{
   background-color: black;
-  height: 100vh;
+  /*height: 100vh;*/
   width: 100%;
   /*background-image: url("./img/");*/
 }
@@ -425,4 +426,18 @@ div.total-expense{
   display: inline-block;
   float: left;
   padding-top: 18px;
+}
+.dropdown-menu .cat-item a:hover{
+  color:red !important;
+
+}
+.graphic{
+  background-color: white;
+  top: 600px;
+  position: absolute;
+  width: 800px;
+  height: 500px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
 }
