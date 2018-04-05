@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './style.css';
-import Animation from './components/Animation';
+import Courses from './components/Courses';
 import Authorization from "./components/registration/Login";
 // import { store } from './index';
 // import { Link } from 'react-router-dom';
@@ -62,6 +62,7 @@ class PersonalAccounting extends Component {
                   </div>
               </div>
           </div>
+          <Courses/>
       </div>
     );
   }

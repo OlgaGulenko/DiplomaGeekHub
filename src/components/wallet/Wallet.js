@@ -3,17 +3,18 @@ import { Button, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl, MenuItem
 import { Navigation } from '../../index';
 // import {MenuItem} from 'react-toolbox/lib/menu';
 // import  apikey from '../registration/Login';
-import { push } from 'react-router-redux';
-import  {store} from '../../index';
+// import { push } from 'react-router-redux';
+// import  {store} from '../../index';
 // import  { DatePicker } from 'react-bootstrap-date-picker';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 //==========================================================
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import FusionCharts from 'fusioncharts';
 import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
+import {Bar,Line,Pie} from 'react-chartjs-2';
 
 class Wallet extends Component {
     constructor(props) {
@@ -44,45 +45,6 @@ class Wallet extends Component {
         });
     };
 
-// Graphic(){
-
-    // const myDataSource = {
-    //     chart: {
-    //         caption: 'Harry\'s SuperMart',
-    //         subCaption: 'Top 5 stores in last month by revenue',
-    //         numberPrefix: '$',
-    //     },
-    //     data: [
-    //         {
-    //             label: 'Bakersfield Central',
-    //             value: '880000',
-    //         },
-    //         {
-    //             label: 'Garden Groove harbour',
-    //             value: '730000',
-    //         },
-    //         {
-    //             label: 'Los Angeles Topanga',
-    //             value: '590000',
-    //         },
-    //         {
-    //             label: 'Compton-Rancho Dom',
-    //             value: '520000',
-    //         },
-    //         {
-    //             label: 'Daly City Serramonte',
-    //             value: '330000',
-    //         },
-    //     ],
-    // };
-//     let chartConfigs = {
-//         type: 'column2d',
-//         width: 600,
-//         height: 400,
-//         dataFormat: 'json',
-//         dataSource: myDataSource,
-//     };
-// }
     GetWallet(){
         console.log(this.state.total_expense);
         let api_key= localStorage.getItem('api_key');
@@ -265,21 +227,30 @@ class Wallet extends Component {
                 numberPrefix: '₴',
                 theme: 'carbon',
             },
-            data: [
-                {
-                    label: 'Expense',
-                    value: localStorage.getItem('total_expense'),
-                },
-                {
-                    label: 'Profit',
-                    value: localStorage.getItem('profit'),
-                },
-                {
-                    label: 'Income',
-                    value: localStorage.getItem('total_income'),
-                },
-
-            ],
+            data: {
+                labels: ["January", "February", "March", "April", "May", "June", "July"],
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: 'rgb(255, 99, 132)',
+                    borderColor: 'rgb(255, 99, 132)',
+                    data: [0, 10, 5, 2, 20, 30, 45],
+                }]
+            }
+            // data: [
+            //     {
+            //         label: 'Expense',
+            //         value: localStorage.getItem('total_expense'),
+            //     },
+            //     {
+            //         label: 'Profit',
+            //         value: localStorage.getItem('profit'),
+            //     },
+            //     {
+            //         label: 'Income',
+            //         value: localStorage.getItem('total_income'),
+            //     },
+            //
+            // ],
         };
 
         return (
@@ -426,11 +397,15 @@ class Wallet extends Component {
                                     <ReactFC
                                     width="800"
                                     height="500"
-                                    type="column2d"
+                                    type="line"
                                     dataSource={ myDataSource }
                                     fcLibrary={FusionCharts} // Provide FusionCharts library
                                     />
                                 </div>
+                                <Bar
+                                >
+
+                                </Bar>
                             </Col>
                         </Row>
                     </Grid>

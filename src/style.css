@@ -215,7 +215,7 @@ body{
   }
   .walletpage{
     background-color: black;
-    height: 1500px;
+    height: 1700px;
     width: 100%;
   }
 
@@ -433,7 +433,7 @@ div.total-expense{
 }
 .graphic{
   background-color: white;
-  top: 600px;
+  top: 785px;
   position: absolute;
   width: 800px;
   height: 500px;
