@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Button, Form, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl, Link} from 'react-bootstrap';
-import {push} from 'react-router-redux'
+import {push} from 'react-router-redux';
 import {store, Navigation} from '../../index';
 
 
@@ -12,19 +12,17 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
-            api_key:''
+            api_key: ''
 
         };
-        // export const apikey = this.state.api_key;
-        // console.log(apikey);
 
     };
 
     Login() {
 
         let loginData = JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
+            email: this.state.email,
+            password: this.state.password
         });
         console.log(loginData);
         let url = 'http://gh-wallet.herokuapp.com/api/v1/login';
@@ -60,7 +58,7 @@ class Login extends Component {
             <div>
                 <div className="container-fluid cont-marg">
                     <div className="header-log">
-                        <div className="mask"> </div>
+                        <div className="mask"></div>
                         <Navigation/>
                         <Grid>
                             <Row className="show-grid">

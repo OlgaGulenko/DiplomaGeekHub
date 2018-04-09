@@ -1,39 +1,44 @@
-import React, { Component } from 'react';
-import { Button, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl, MenuItem, SplitButton, DropdownButton, NavDropdown, Nav, Navbar, Modal, Jumbotron,  NavItem} from 'react-bootstrap';
-import { Navigation } from '../../index';
-// import {MenuItem} from 'react-toolbox/lib/menu';
-// import  apikey from '../registration/Login';
-// import { push } from 'react-router-redux';
-// import  {store} from '../../index';
-// import  { DatePicker } from 'react-bootstrap-date-picker';
+import React, {Component} from 'react';
+import {
+    Button,
+    Grid,
+    Row,
+    Col,
+    ButtonToolbar,
+    FormGroup,
+    FormControl,
+    MenuItem,
+    SplitButton,
+    DropdownButton,
+    NavDropdown,
+    Nav,
+    Navbar,
+    Modal,
+    Jumbotron,
+    NavItem
+} from 'react-bootstrap';
+import {Navigation} from '../../index';
 import moment from 'moment';
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
-//==========================================================
-// import ReactDOM from 'react-dom';
 import FusionCharts from 'fusioncharts';
 import Charts from 'fusioncharts/fusioncharts.charts';
 import ReactFC from 'react-fusioncharts';
-import {Bar,Line,Pie} from 'react-chartjs-2';
 
 class Wallet extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            total_income:'',
-            total_expense:'',
-            profit:'',
-            amount:'',
-            comment:'',
-            category_id:'',
-            user_id:'',
-            title_category:'',
+            total_income: '',
+            total_expense: '',
+            profit: '',
+            amount: '',
+            comment: '',
+            category_id: '',
+            user_id: '',
+            title_category: '',
             date: moment(),
-            // is_deleted:'bool',
-            // created_at:'',
-            // updated_at:'',
-
-            categories:[]
+            categories: []
         };
         this.handleChange = this.handleChange.bind(this);
 
@@ -45,22 +50,23 @@ class Wallet extends Component {
         });
     };
 
-    GetWallet(){
+    GetWallet() {
         console.log(this.state.total_expense);
-        let api_key= localStorage.getItem('api_key');
+        let api_key = localStorage.getItem('api_key');
         // console.log(api_key);
-        let url ='http://gh-wallet.herokuapp.com/api/v1/wallet';
-        fetch(url,{
-            method:'get',
+        let url = 'http://gh-wallet.herokuapp.com/api/v1/wallet';
+        fetch(url, {
+            method: 'get',
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': api_key,
 
-            }})
+            }
+        })
             .then(response => response.json())
             .then(response => {
                 console.log(response);
-                this.setState ({
+                this.setState({
                     wallet: response
                 });
                 if (response !== '') {
@@ -76,22 +82,24 @@ class Wallet extends Component {
 
 
     }
-    GetCategoryIncome(){
 
-        let api_key= localStorage.getItem('api_key');
-        if(api_key !== null){
-            let url ='http://gh-wallet.herokuapp.com/api/v1/categories?kind=income';
-            fetch(url,{
-                method:'get',
+    GetCategoryIncome() {
+
+        let api_key = localStorage.getItem('api_key');
+        if (api_key !== null) {
+            let url = 'http://gh-wallet.herokuapp.com/api/v1/categories?kind=income';
+            fetch(url, {
+                method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': api_key,
 
-                }})
+                }
+            })
                 .then(response => response.json())
                 .then(response => {
                     console.log(response);
-                    this.setState ({
+                    this.setState({
                         categories: response.categories
                     });
                     if (response !== '') {
@@ -114,22 +122,24 @@ class Wallet extends Component {
         }
 
     }
-    GetCategoryExpense(){
 
-        let api_key= localStorage.getItem('api_key');
-        if(api_key !== null){
-            let url ='http://gh-wallet.herokuapp.com/api/v1/categories?kind=expense';
-            fetch(url,{
-                method:'get',
+    GetCategoryExpense() {
+
+        let api_key = localStorage.getItem('api_key');
+        if (api_key !== null) {
+            let url = 'http://gh-wallet.herokuapp.com/api/v1/categories?kind=expense';
+            fetch(url, {
+                method: 'get',
                 headers: {
                     'Content-Type': 'application/json',
                     'x-api-key': api_key,
 
-                }})
+                }
+            })
                 .then(response => response.json())
                 .then(response => {
                     console.log(response);
-                    this.setState ({
+                    this.setState({
                         categories: response.categories
                     });
                     if (response !== '') {
@@ -147,71 +157,75 @@ class Wallet extends Component {
         }
 
     }
-    CreateIncome(){
+
+    CreateIncome() {
         var value = new Date().toISOString();
-        let api_key= localStorage.getItem('api_key');
+        let api_key = localStorage.getItem('api_key');
         let category_id = this.state.category_id;
-        console.log('cat id ' ,category_id);
+        console.log('cat id ', category_id);
         let incomeData = JSON.stringify({
             entry: {
-                date:this.state.date,
-                amount:this.state.amount ,
-                comment:this.state.comment,
+                date: this.state.date,
+                amount: this.state.amount,
+                comment: this.state.comment,
                 category_id,
 
             }
         });
         console.log(incomeData);
         console.log(category_id);
-        let urlincome ='http://gh-wallet.herokuapp.com/api/v1/categories/'+category_id+'/entries';
-        fetch(urlincome,{
-            method:'post',
-            body:incomeData,
+        let urlincome = 'http://gh-wallet.herokuapp.com/api/v1/categories/' + category_id + '/entries';
+        fetch(urlincome, {
+            method: 'post',
+            body: incomeData,
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': api_key,
-            }})
+            }
+        })
             .then(response => response.json())
             .then(response => {
-                this.setState ({
+                this.setState({
                     post: response
 
-                } );
+                });
 
                 this.GetWallet();
             });
 
     }
-    CreateExpense(){
+
+    CreateExpense() {
         var value = new Date().toISOString();
-        let api_key= localStorage.getItem('api_key');
+        let api_key = localStorage.getItem('api_key');
         let category_id = this.state.category_id;
-        console.log('cat id ' ,category_id);
+        console.log('cat id ', category_id);
         let incomeData = JSON.stringify({
             entry: {
-                date:this.state.date,
-                amount:this.state.amount ,
-                comment:this.state.comment,
+                date: this.state.date,
+                amount: this.state.amount,
+                comment: this.state.comment,
                 category_id,
 
             }
         });
         console.log(incomeData);
         console.log(category_id);
-        let urlincome ='http://gh-wallet.herokuapp.com/api/v1/categories/'+category_id+'/entries';
-        fetch(urlincome,{
-            method:'post',
-            body:incomeData,
+        let urlincome = 'http://gh-wallet.herokuapp.com/api/v1/categories/' + category_id + '/entries';
+        fetch(urlincome, {
+            method: 'post',
+            body: incomeData,
             headers: {
                 'Content-Type': 'application/json',
                 'x-api-key': api_key,
-            }})
+            }
+        })
             .then(response => response.json())
             .then(response => {
-                this.setState ({
+                this.setState({
                     post: response
 
-                } );
+                });
 
                 this.GetWallet();
             });
@@ -227,194 +241,201 @@ class Wallet extends Component {
                 numberPrefix: '₴',
                 theme: 'carbon',
             },
-            data: {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [{
-                    label: "My First dataset",
-                    backgroundColor: 'rgb(255, 99, 132)',
-                    borderColor: 'rgb(255, 99, 132)',
-                    data: [0, 10, 5, 2, 20, 30, 45],
-                }]
-            }
-            // data: [
-            //     {
-            //         label: 'Expense',
-            //         value: localStorage.getItem('total_expense'),
-            //     },
-            //     {
-            //         label: 'Profit',
-            //         value: localStorage.getItem('profit'),
-            //     },
-            //     {
-            //         label: 'Income',
-            //         value: localStorage.getItem('total_income'),
-            //     },
-            //
-            // ],
+            data: [
+                {
+                    label: 'Expense',
+                    value: localStorage.getItem('total_expense'),
+                },
+                {
+                    label: 'Profit',
+                    value: localStorage.getItem('profit'),
+                },
+                {
+                    label: 'Income',
+                    value: localStorage.getItem('total_income'),
+                },
+
+            ],
         };
 
         return (
             <div className='walletpage'>
-                { (localStorage.getItem('api_key' ))!== null ? (
-                <div className="container-fluid">
-                    <Navigation/>
+                {(localStorage.getItem('api_key')) !== null ? (
+                    <div className="container-fluid">
+                        <Navigation/>
 
-                    <Grid>
-                        <Row className="show-grid">
-                            <Col md={12} lg={12} sm={12} xs={12}>
-                                <div className="wallet" >
-                                    <div className="profit">
-                                        <img  src={ require('../../img/wallet.svg')} alt="Check incomes"/>
-                                        <li className="wallet-li profit">
-                                            <strong>Profit</strong>
-                                            <strong><h2>{Math.round(localStorage.getItem('profit'))}grn</h2></strong><br/>
-                                        </li>
+                        <Grid>
+                            <Row className="show-grid">
+                                <Col md={12} lg={12} sm={12} xs={12}>
+                                    <div className="wallet">
+                                        <div className="profit">
+                                            <img src={require('../../img/wallet.svg')} alt="Check incomes"/>
+                                            <li className="wallet-li profit">
+                                                <strong>Profit</strong>
+                                                <strong><h2>{Math.round(localStorage.getItem('profit'))}grn</h2>
+                                                </strong><br/>
+                                            </li>
+                                        </div>
+                                        <div className="total-income">
+                                            <li className="wallet-li total-income">
+                                                <strong>Income</strong>
+                                                <strong><h2>{Math.round(localStorage.getItem('total_income'))}grn</h2>
+                                                </strong><br/>
+                                            </li>
+                                        </div>
+                                        <div className="total-expense">
+                                            <li className="wallet-li total-expense">
+                                                <strong>Expense</strong>
+                                                <strong><h2>{Math.round(localStorage.getItem('total_expense'))}grn</h2>
+                                                </strong><br/>
+                                            </li>
+                                        </div>
                                     </div>
-                                    <div className="total-income">
-                                        <li className="wallet-li total-income">
-                                            <strong>Income</strong>
-                                            <strong><h2>{Math.round(localStorage.getItem('total_income'))}grn</h2></strong><br/>
-                                        </li>
+                                </Col>
+                            </Row>
+                        </Grid>)
+                        <Grid>
+                            <Row className="show-grid">
+                                <Col md={4} lg={6} sm={12} xs={12}>
+                                    <div className="incomeform registrationform">
+                                        <span> Create your income</span>
+                                        <FormGroup>
+                                            <DatePicker
+                                                selected={this.state.date}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControl
+                                                className="input-reg inp"
+                                                label="amount"
+                                                type="text"
+                                                value={this.state.amount}
+                                                placeholder="Enter amount"
+                                                onChange={(event) => this.setState({amount: event.target.value})}
+                                            />
+                                            <FormControl.Feedback/>
+                                            <FormControl
+                                                className="input-reg inp"
+                                                label="comment"
+                                                type="text"
+                                                value={this.state.comment}
+                                                placeholder="comment"
+                                                onChange={(event) => this.setState({comment: event.target.value})}
+                                            />
+                                            <FormControl.Feedback/>
+
+                                            <DropdownButton
+                                                label="Category"
+                                                title="Category"
+                                                id="categoriesDropdown"
+                                                key={this.state.categories.id}
+                                                onSelect={(eventKey) => {
+                                                    this.setState({category_id: eventKey})
+                                                }}
+                                                onClick={this.GetCategoryIncome.bind(this)}
+                                            >
+                                                {this.state.categories.map((category) => {
+                                                    console.log(category.id);
+                                                    return (
+                                                        <MenuItem className="cat-item" eventKey={category.id}
+                                                                  key={category.id}>
+                                                            {category.title}
+                                                        </MenuItem>
+                                                    )
+                                                })}
+                                            </DropdownButton>
+
+                                        </FormGroup>
+                                        <ButtonToolbar className="btn-registration">
+                                            <Button bsSize="sm" onClick={this.CreateIncome.bind(this)}>Add
+                                                income</Button>
+                                        </ButtonToolbar>
                                     </div>
-                                    <div className="total-expense">
-                                        <li className="wallet-li total-expense">
-                                        <strong>Expense</strong>
-                                        <strong><h2>{Math.round(localStorage.getItem('total_expense'))}grn</h2></strong><br/>
-                                    </li>
+                                </Col>
+
+                                <Col md={4} lg={6} sm={12} xs={12}>
+                                    <div className="incomeform registrationform">
+
+                                        <span> Create expence</span>
+                                        <FormGroup>
+                                            <DatePicker
+                                                selected={this.state.date}
+                                                onChange={this.handleChange}
+                                            />
+                                            <FormControl
+                                                className="input-reg inp"
+                                                label="amount"
+                                                type="text"
+                                                value={this.state.amount}
+                                                placeholder="Enter amount"
+                                                onChange={(event) => this.setState({amount: event.target.value})}
+                                            />
+                                            <FormControl.Feedback/>
+                                            <FormControl
+                                                className="input-reg inp"
+                                                label="comment"
+                                                type="text"
+                                                value={this.state.comment}
+                                                placeholder="comment"
+                                                onChange={(event) => this.setState({comment: event.target.value})}
+                                            />
+                                            <FormControl.Feedback/>
+
+                                            <DropdownButton
+                                                label="Category"
+                                                title="Category"
+                                                id="categoriesDropdown"
+                                                key={this.state.categories.id}
+                                                onSelect={(eventKey) => {
+                                                    this.setState({category_id: eventKey})
+                                                }}
+                                                onClick={this.GetCategoryExpense.bind(this)}
+                                            >
+                                                {this.state.categories.map((category) => {
+                                                    console.log(category.id);
+                                                    return (
+                                                        <MenuItem eventKey={category.id} key={category.id}>
+                                                            {category.title}
+                                                        </MenuItem>
+                                                    )
+                                                })}
+                                            </DropdownButton>
+
+                                        </FormGroup>
+                                        <ButtonToolbar className="btn-registration">
+                                            <Button bsSize="sm" onClick={this.CreateExpense.bind(this)}>Add
+                                                income</Button>
+                                        </ButtonToolbar>
                                     </div>
-                                </div>
-                            </Col>
-                        </Row>
-                    </Grid>)
-                    <Grid>
-                        <Row className="show-grid">
-                            <Col md={4} lg={6} sm={12} xs={12}>
-                                <div className="incomeform registrationform" >
-                                    <span> Create your income</span>
-                                    <FormGroup>
-                                        <DatePicker
-                                            selected={this.state.date}
-                                            onChange={this.handleChange}
+                                </Col>
+                            </Row>
+                            <Row>
+                                <Col md={4} lg={12} sm={12} xs={12}>
+                                    <div className="graphic">
+                                        <ReactFC
+                                            width="800"
+                                            height="500"
+                                            type="column3d"
+                                            dataSource={myDataSource}
+                                            fcLibrary={FusionCharts} // Provide FusionCharts library
                                         />
-                                        <FormControl
-                                            className="input-reg inp"
-                                            label="amount"
-                                            type="text"
-                                            value={this.state.amount}
-                                            placeholder="Enter amount"
-                                            onChange={(event) => this.setState({ amount: event.target.value })}
-                                        />
-                                        <FormControl.Feedback />
-                                        <FormControl
-                                            className="input-reg inp"
-                                            label="comment"
-                                            type="text"
-                                            value={this.state.comment}
-                                            placeholder="comment"
-                                            onChange={(event) => this.setState({ comment: event.target.value })}
-                                        />
-                                        <FormControl.Feedback />
+                                    </div>
+                                </Col>
+                            </Row>
 
-                                        <DropdownButton
-                                            label="Category"
-                                            title="Category"
-                                            id="categoriesDropdown"
-                                            key={this.state.categories.id}
-                                            onSelect={(eventKey) => {this.setState({ category_id: eventKey })}}
-                                            onClick={this.GetCategoryIncome.bind(this)}
-                                        >
-                                            {this.state.categories.map((category) =>{
-                                                console.log(category.id);
-                                                return(
-                                                    <MenuItem className="cat-item" eventKey={category.id} key={category.id}>
-                                                        {category.title}
-                                                    </MenuItem>
-                                                )
-                                            })}
-                                        </DropdownButton>
+                        </Grid>
+                        <div className="bord">
+                            <div className="border-white-left"></div>
+                            <a className='arrow'></a>
+                            <a className='arrow2'></a>
+                            <a href="#next" className='arr'></a>
+                            <div className="border-white-right"></div>
+                        </div>
 
-                                    </FormGroup>
-                                    <ButtonToolbar className="btn-registration">
-                                        <Button bsSize="sm" onClick={this.CreateIncome.bind(this)}>Add income</Button>
-                                    </ButtonToolbar>
-                                </div>
-                            </Col>
-                            <Col md={4} lg={6} sm={12} xs={12}>
-                                <div className="incomeform registrationform" >
-                                    <span> Create expence</span>
-                                    <FormGroup>
-                                        <DatePicker
-                                            selected={this.state.date}
-                                            onChange={this.handleChange}
-                                        />
-                                        <FormControl
-                                            className="input-reg inp"
-                                            label="amount"
-                                            type="text"
-                                            value={this.state.amount}
-                                            placeholder="Enter amount"
-                                            onChange={(event) => this.setState({ amount: event.target.value })}
-                                        />
-                                        <FormControl.Feedback />
-                                        <FormControl
-                                            className="input-reg inp"
-                                            label="comment"
-                                            type="text"
-                                            value={this.state.comment}
-                                            placeholder="comment"
-                                            onChange={(event) => this.setState({ comment: event.target.value })}
-                                        />
-                                        <FormControl.Feedback />
-
-                                        <DropdownButton
-                                            label="Category"
-                                            title="Category"
-                                            id="categoriesDropdown"
-                                            key={this.state.categories.id}
-                                            onSelect={(eventKey) => {this.setState({ category_id: eventKey })}}
-                                            onClick={this.GetCategoryExpense.bind(this)}
-                                        >
-                                            {this.state.categories.map((category) =>{
-                                                console.log(category.id);
-                                                return(
-                                                    <MenuItem eventKey={category.id} key={category.id}>
-                                                        {category.title}
-                                                    </MenuItem>
-                                                )
-                                            })}
-                                        </DropdownButton>
-
-                                    </FormGroup>
-                                    <ButtonToolbar className="btn-registration">
-                                        <Button bsSize="sm" onClick={this.CreateExpense.bind(this)}>Add income</Button>
-                                    </ButtonToolbar>
-                                </div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col md={4} lg={12} sm={12} xs={12}>
-                                <div className="graphic">
-                                    <ReactFC
-                                    width="800"
-                                    height="500"
-                                    type="line"
-                                    dataSource={ myDataSource }
-                                    fcLibrary={FusionCharts} // Provide FusionCharts library
-                                    />
-                                </div>
-                                <Bar
-                                >
-
-                                </Bar>
-                            </Col>
-                        </Row>
-                    </Grid>
-
-
-                </div>
-                    ): (
-                        alert('Please create your account or login'),
-                        window.location.href = 'http://localhost:3000/login/') }
+                        <div id="next"></div>
+                    </div>
+                ) : (
+                    alert('Please create your account or login'),
+                        window.location.href = 'http://localhost:3000/login/')}
             </div>
 
         );

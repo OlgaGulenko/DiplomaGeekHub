@@ -17,6 +17,7 @@
 body {
   font-family: 'Lato', sans-serif;
   overflow-x:hidden;
+  background-color: black;
   /*overflow:hidden;*/
   /*overflow-y:hidden;*/
 }
@@ -222,6 +223,18 @@ body{
 
 }
 @media (max-width: 991px) {
+  .bord{
+    display: none;
+  }
+  .graphic{
+    display: none;
+  }
+  .registr{
+    ottom: -23px;
+    margin-top: 42px;
+    position: relative;
+    display: block;
+  }
   .about-us .thumbnail img {
     margin: auto;
     width: 80px;
@@ -269,8 +282,14 @@ body{
   .registrationform{
     max-width: 350px;
     margin: 0 auto;
-    margin-top: 28px;
+    margin-top: 308px;
   }
+
+.incomeform{
+
+  margin-top: 88px;
+  margin-bottom: 100px;
+}
   .mask{
     width: 100%;
     height: 350px;
@@ -440,4 +459,85 @@ div.total-expense{
   margin: 0 auto;
   left: 0;
   right: 0;
+}
+.arrow{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: block;
+  background-size: auto;
+  background-color: yellow;
+  margin-left: 50%;
+}
+.arr {
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: block;
+  background-size: auto;
+  left: 50%;
+  z-index: 122;
+  right: 0;
+}
+.arrow2{
+  width: 70px;
+  height: 70px;
+  position: absolute;
+  display: block;
+  background-size: auto;
+  background-color: yellow;
+  right: 50%;
+  z-index: 0;
+}
+#next{
+  width: 30px;
+  height: 30px;
+  /*background-color: red;*/
+  position: absolute;
+  display: block;
+  top:1200px;
+
+}
+.white-bg .border {
+  background: 0 0;
+  position: absolute;
+  height: 117px;
+  bottom: 100%;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
+}
+.bord .border-white-right {
+  width: calc(50% - 0px);
+  height: 0;
+  border-bottom:65px solid black;
+  border-left: 65px solid transparent;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  right: 0;
+  bottom: 0;
+}
+.bord .border-white-left {
+  width: calc(50% - 0px);
+  height: 0;
+  border-bottom: 65px solid black;
+  border-right: 65px solid transparent;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 0;
+  bottom: 0;
+  z-index: 11;
+}
+.bord{
+  background: 0 0;
+  position: absolute;
+  height: 65px;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+  overflow: hidden;
 }

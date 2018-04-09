@@ -1,19 +1,13 @@
 import React, { Component } from 'react';
 import { Button, Grid, Row, Col, ButtonToolbar, FormGroup, FormControl, MenuItem, SplitButton, DropdownButton, NavDropdown, Nav, Navbar, Modal, Jumbotron,  NavItem} from 'react-bootstrap';
-// import { Navigation } from '../../index';
-
-import {findDOMNode} from 'react-dom';
-import moment from "moment/moment";
-// import $ from 'jquery';
-//
 class Courses extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            "ccy":'',
-            "base_ccy":'',
-            "buy":'',
-            "sale":'',
+            "txt":'',
+            "rate":'',
+            "cc":'',
+            "exchangedate":'',
         };
         this.handleChange = this.handleChange.bind(this);
 
@@ -24,19 +18,17 @@ class Courses extends Component {
         });
     };
     GetCourses(){
-        // console.log(t/his.state.ccy);
-        let url ='https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11';
-        // https://api.privatbank.ua/p24api/pubinfo?exchange&json&coursid=11
+        let url ='https://bank.gov.ua/NBUStatService/v1/statdirectory/exchange?json';
         fetch(url,{
             method:'get',
             headers: {
                 'Content-Type': 'application/json',
-                // 'Access'
+                'Accept': 'application/json',
+                'mode': 'no-cors',
                 'Access-Control-Allow-Origin' : 'http://localhost:3000/',
-                'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE'
 
-
-            }})
+            }
+        })
             .then(response => response.json())
             .then(response => {
                 // console.log(response);
@@ -45,10 +37,10 @@ class Courses extends Component {
                 });
                 if (response !== '') {
 
-                    localStorage.setItem('ccy', response.course.ccy);
-                    localStorage.setItem('base_ccy', response.course.base_ccy);
-                    localStorage.setItem('buy', response.course.buy);
-                    localStorage.setItem('sale', response.course.sale);
+                    localStorage.setItem('txt', response.course.txt);
+                    localStorage.setItem('rate', response.course.rate);
+                    localStorage.setItem('cc', response.course.cc);
+                    localStorage.setItem('exchangedate', response.course.exchangedate);
                 }
                 else {
                     alert("refresh window")
@@ -61,7 +53,7 @@ class Courses extends Component {
     render() {
         return (
             <ButtonToolbar className="btn-registration">
-                <Button bsSize="sm" onClick={this.GetCourses.bind(this)}>Add income</Button>
+                <Button bsSize="sm" onClick={this.GetCourses.bind(this)}> </Button>
             </ButtonToolbar>
         );
     }
